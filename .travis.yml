@@ -55,6 +55,7 @@ deploy:
     - "book.mobi"
     - "book.pdf"
     skip_cleanup: true
+    overwrite: true
     api_key:
       secure: RiETMsn9VWr/hx5PYevPHurK6pxq70PC8C54jSppROFuaFcSCUpxCB9cnrgxPDg7r0015ch/7dD9H39PtRQ/jq8k3KcHEeQoTI9/wG1R0HMTKWEoBoQcYRSrCDLcoh1ZfHk+j3IMoc2/SJIctSm0//fS791dhGraov0AScdW8BXh5eR/kNdVSyhDCSw9eugqvgFfH0U2k9FOnm38An181qbFsg4RxVIRaaOnqCX8o1eD2y1DEQapxxTNGfnwUO5MjO5Hahrsmq6rQ5NX4U7eeOk9N9dvPr7Ax5QWoAg0KHX+mQxGpWfIv6bkw273wJ9zV6TR9GGvc10GTmBGMvWguTRTlSP+cy/N5CIRpjqYSyGWyZL7VsSbQSa7mUEnTcuBetPZvmdoloOZgNWazgXCMRRYFDYxxaVe0jr4mAVSsELtM805H2SLBSBjfls0ZBUMbIVpjSyr8VBJS+Ew+5mYP/rE/BszSZObh/GBBWF9XJwrzL7kgn8u2YGUtbE9LceIEoRiUZnYw55P9K8CrtwYy/DtSG2u1b5mdTjAnvJMKcyn8TwcjTmtdWnM2OOyDLFlj2TnYvKLMi/bynClGU1gsYEizzXQCFaWQBuVQqstVeH7QUyBNz9+36LZJNmMfoLV1fthR3ot4Xw125Pb9TN4lPhmQfIr9tfAgFhNRTYunog=
     on:
