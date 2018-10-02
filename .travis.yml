@@ -37,7 +37,6 @@ branches:
 before_deploy:
 - git config --local user.name "Ein Verne"
 - git config --local user.email "git@einverne.info"
-- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
   - provider: pages
     skip_cleanup: true
