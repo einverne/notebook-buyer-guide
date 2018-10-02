@@ -1,0 +1,88 @@
+{
+  "title": "笔记本选购指南",
+  "author": "Ein Verne",
+  "description": "笔记本选购指南",
+  "keywords": "笔记本选购指南, laptop , notebook, cpu, ram, gpu, graphics-card, ",
+  "introduction": {
+    "path": "README.md",
+    "title": "笔记本选购指南"
+  },
+  "plugins": [
+    "editlink",
+    "image-captions",
+    "splitter",
+    "expandable-chapters-small",
+    "-mathjax",
+    "ga",
+    "-lunr",
+    "-search",
+    "search-pro",
+    "sitemap",
+    "localized-footer"
+  ],
+  "pluginsConfig": {
+    "theme-default": {
+      "showLevel": true
+    },
+    "editlink": {
+      "base": "https://github.com/einverne/notebook-buyer-guide",
+      "label": "编辑本页",
+      "multilingual": false
+    },
+    "image-captions": {
+      "caption": "图片 - _CAPTION_",
+      "align": "center"
+    },
+    "expandable-chapters-small": {},
+    "fontSettings": {
+      "theme": "white",
+      "family": "serif",
+      "size": 2
+    },
+    "ga": {
+      "token": "UA-60753376-3"
+    },
+    "search-pro": {
+      "cutWordLib": "nodejieba"
+    },
+    "sitemap": {
+      "hostname": "https://einverne.github.io/"
+    },
+    "localized-footer": {
+      "hline": true,
+      "filename": "./FOOTER.md"
+    }
+  },
+  "links": {
+    "home": false,
+    "about": false,
+    "issues": false,
+    "contribute": false,
+    "sidebar": {
+      "博客地址": "https://einverne.github.io/"
+    },
+    "tail": {
+      "Gitbook使用入门": "https://einverne.github.io/notebook-buyer-guide"
+    },
+    "gitbook": false,
+    "sharing": {
+      "google": true,
+      "facebook": true,
+      "twitter": true,
+      "weibo": true,
+      "qrcode": true
+    }
+  },
+  "pdf": {
+    "toc": true,
+    "pageNumbers": true,
+    "fontSize": 12,
+    "paperSize": "a4",
+    "margin": {
+      "right": 62,
+      "left": 62,
+      "top": 36,
+      "bottom": 36
+    }
+  }
+}
