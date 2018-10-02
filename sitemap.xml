@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url> <loc>https://einverne.github.io/./</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/preface/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/laptop/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/laptop/cpu.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/laptop/ram.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/laptop/harddrive.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/laptop/graphics-card.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/laptop/display.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/laptop/peripherals.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/laptop/operating-system.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/guide/first-step.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://einverne.github.io/end/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+</urlset>

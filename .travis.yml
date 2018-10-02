@@ -1,0 +1,64 @@
+sudo: required
+language: node_js
+node_js:
+- stable
+before_install:
+- export TZ='Asia/Shanghai'
+- npm install gitbook-cli -g
+- npm install svgexport -g
+- gitbook fetch 3.2.3
+- sudo apt-get update -qq
+- sudo -v && wget --no-check-certificate -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py
+  | sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n');
+  exec(sys.stdin.read()); main()"
+install:
+- gitbook install
+before_script:
+- mkdir -p ~/.fonts/noto
+- mkdir -p ~/raw_fonts/{NotoSans-unhinted,NotoSansCJKsc-hinted,NotoSansCJKtc-hinted}
+- wget -P ~/raw_fonts https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-unhinted.zip
+- unzip ~/raw_fonts/NotoSans-unhinted.zip -d ~/raw_fonts/NotoSans-unhinted
+- wget -P ~/raw_fonts https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKsc-hinted.zip
+- unzip ~/raw_fonts/NotoSansCJKsc-hinted.zip -d ~/raw_fonts/NotoSansCJKsc-hinted
+- wget -P ~/raw_fonts https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKtc-hinted.zip
+- unzip ~/raw_fonts/NotoSansCJKtc-hinted.zip -d ~/raw_fonts/NotoSansCJKtc-hinted
+script:
+- mv -t ~/.fonts/noto ~/raw_fonts/NotoSansCJKsc-hinted/*-DemiLight.otf ~/raw_fonts/NotoSansCJKsc-hinted/*-Bold.otf
+  ~/raw_fonts/NotoSansCJKsc-hinted/*-Black.otf
+- sudo fc-cache -f -v
+- gitbook pdf .
+- gitbook epub .
+- gitbook mobi .
+- rm ~/.fonts/noto/*.otf
+- gitbook build .
+branches:
+  only:
+  - master
+  - /^v\d+\.\d+\.\d+$/
+before_deploy:
+- git config --local user.name "Ein Verne"
+- git config --local user.email "git@einverne.info"
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    local_dir: _book
+    name: Ein Verne
+    email: git@einverne.info
+    verbose: true
+    on:
+      branch: master
+    github_token:
+      secure: RiETMsn9VWr/hx5PYevPHurK6pxq70PC8C54jSppROFuaFcSCUpxCB9cnrgxPDg7r0015ch/7dD9H39PtRQ/jq8k3KcHEeQoTI9/wG1R0HMTKWEoBoQcYRSrCDLcoh1ZfHk+j3IMoc2/SJIctSm0//fS791dhGraov0AScdW8BXh5eR/kNdVSyhDCSw9eugqvgFfH0U2k9FOnm38An181qbFsg4RxVIRaaOnqCX8o1eD2y1DEQapxxTNGfnwUO5MjO5Hahrsmq6rQ5NX4U7eeOk9N9dvPr7Ax5QWoAg0KHX+mQxGpWfIv6bkw273wJ9zV6TR9GGvc10GTmBGMvWguTRTlSP+cy/N5CIRpjqYSyGWyZL7VsSbQSa7mUEnTcuBetPZvmdoloOZgNWazgXCMRRYFDYxxaVe0jr4mAVSsELtM805H2SLBSBjfls0ZBUMbIVpjSyr8VBJS+Ew+5mYP/rE/BszSZObh/GBBWF9XJwrzL7kgn8u2YGUtbE9LceIEoRiUZnYw55P9K8CrtwYy/DtSG2u1b5mdTjAnvJMKcyn8TwcjTmtdWnM2OOyDLFlj2TnYvKLMi/bynClGU1gsYEizzXQCFaWQBuVQqstVeH7QUyBNz9+36LZJNmMfoLV1fthR3ot4Xw125Pb9TN4lPhmQfIr9tfAgFhNRTYunog=
+  - provider: releases
+    file:
+    - "book.epub"
+    - "book.mobi"
+    - "book.pdf"
+    skip_cleanup: true
+    overwrite: true
+    api_key:
+      secure: RiETMsn9VWr/hx5PYevPHurK6pxq70PC8C54jSppROFuaFcSCUpxCB9cnrgxPDg7r0015ch/7dD9H39PtRQ/jq8k3KcHEeQoTI9/wG1R0HMTKWEoBoQcYRSrCDLcoh1ZfHk+j3IMoc2/SJIctSm0//fS791dhGraov0AScdW8BXh5eR/kNdVSyhDCSw9eugqvgFfH0U2k9FOnm38An181qbFsg4RxVIRaaOnqCX8o1eD2y1DEQapxxTNGfnwUO5MjO5Hahrsmq6rQ5NX4U7eeOk9N9dvPr7Ax5QWoAg0KHX+mQxGpWfIv6bkw273wJ9zV6TR9GGvc10GTmBGMvWguTRTlSP+cy/N5CIRpjqYSyGWyZL7VsSbQSa7mUEnTcuBetPZvmdoloOZgNWazgXCMRRYFDYxxaVe0jr4mAVSsELtM805H2SLBSBjfls0ZBUMbIVpjSyr8VBJS+Ew+5mYP/rE/BszSZObh/GBBWF9XJwrzL7kgn8u2YGUtbE9LceIEoRiUZnYw55P9K8CrtwYy/DtSG2u1b5mdTjAnvJMKcyn8TwcjTmtdWnM2OOyDLFlj2TnYvKLMi/bynClGU1gsYEizzXQCFaWQBuVQqstVeH7QUyBNz9+36LZJNmMfoLV1fthR3ot4Xw125Pb9TN4lPhmQfIr9tfAgFhNRTYunog=
+    on:
+      tags: true
+after_success:
+- ls -lh
